@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+ 
+{% block content %} 
+
+<div class = " card mt-5 border-primary">
+   <div class="card-body  ">
+      <div class="mt-5">
+         <form method="post" class="form-group">
+            {%csrf_token%}
+            {{form.as_p}}
+
+            <div class="pt-2">
+               <strong>You don't have an account? <a class="text-danger" href="{% url 'auth_register' %}"> Register Now!!</a> </strong>
+            </div>
+            <button class="btn btn-primary" type="submit">Log in</button>
+         </form>
+         
+        </div>
+      </div>
+
+   </div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %} 
+
+<header>
+    
+</header>
+<body style="background: url('https://i.pinimg.com/564x/a6/00/0e/a6000e9a7fc570286eb46c5ceb2f2659.jpg') 
+                         no-repeat center center fixed; 
+                         background-size: cover; height: 100vh;">
+
+</body>
+<div class="container">
+    {% for item in phone %}
+    <div class="col-sm-12">
+        <div class="card border-primary mt-5">
+            <div class="card-body position-relative">
+                <div class="row mt-5">
+                    <div class="col-sm-3">
+                        <img src="../static/images/{{item.image}}" width="200" height="400">
+                    </div>
+                    <div class="col-sm-9">
+                        <ul class="list-unstyled text-start">
+                          <li><h4 class="alert alert-primary">Name: {{item.itemsid.name}}</h4></li>
+                          <li><h4 class="alert alert-primary">Color: {{item.color}}</h4></li>
+                          <li><h4 class="alert alert-primary">Price: {{item.price}} SR</h4></li>
+                          <li><h4 class="alert alert-primary">Quantity: {{item.qty}}</h4></li>
+                          <li><h4 class="alert alert-primary">Tax: {{item.tax}}</h4></li>
+                          <li><h4 class="alert alert-primary">Total: {{item.total}} SR</h4></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row justify-content-center text-center"> <!-- Added justify-content-center class here -->
+                    <div class="col-sm-12 justify-content-center text-center">
+                        <a href="{% url 'details' id=item.id %}" class=" btn btn-primary justify-content-center text-center">Product Details</a> <!-- Removed extra whitespace -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+     {% endblock %}
+
